@@ -11,5 +11,12 @@
 
     <artifactId>lfm-rpc-server</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.lifengming</groupId>
+            <artifactId>lfm-rpc-core</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+    </dependencies>
 
 </project>
