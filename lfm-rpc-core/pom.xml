@@ -10,6 +10,17 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>lfm-rpc-core</artifactId>
+    <properties>
+        <spring.veriosn>5.1.6.RELEASE</spring.veriosn>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>${spring.veriosn}</version>
+        </dependency>
+    </dependencies>
 
 
 </project>
