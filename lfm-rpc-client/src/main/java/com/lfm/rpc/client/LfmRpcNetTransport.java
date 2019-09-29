@@ -1,6 +1,6 @@
 package com.lfm.rpc.client;
 
-import com.lfm.rpc.core.request.RpcRequest;
+import com.lfm.rpc.core.model.RpcRequest;
 import lombok.AllArgsConstructor;
 
 import java.io.IOException;

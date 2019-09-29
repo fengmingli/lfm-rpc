@@ -10,8 +10,23 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>lfm-rpc-core</artifactId>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>6</source>
+                    <target>6</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
     <properties>
         <spring.veriosn>5.1.6.RELEASE</spring.veriosn>
+        <netty.version>4.1.37.Final</netty.version>
+        <protostuff.version>1.6.0</protostuff.version>
+        <objenesis.version>2.6</objenesis.version>
     </properties>
 
     <dependencies>
@@ -20,6 +35,34 @@
             <artifactId>spring-context</artifactId>
             <version>${spring.veriosn}</version>
         </dependency>
+
+        <!-- netty -->
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-all</artifactId>
+            <version>${netty.version}</version>
+        </dependency>
+
+        <!-- protostuff + objenesis (provided) -->
+        <dependency>
+            <groupId>io.protostuff</groupId>
+            <artifactId>protostuff-core</artifactId>
+            <version>${protostuff.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.protostuff</groupId>
+            <artifactId>protostuff-runtime</artifactId>
+            <version>${protostuff.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.objenesis</groupId>
+            <artifactId>objenesis</artifactId>
+            <version>${objenesis.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
     </dependencies>
 
 
