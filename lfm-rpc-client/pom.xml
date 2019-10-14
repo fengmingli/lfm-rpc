@@ -10,7 +10,6 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>lfm-rpc-client</artifactId>
-
     <dependencies>
         <dependency>
             <groupId>com.lifengming</groupId>
@@ -19,5 +18,14 @@
         </dependency>
     </dependencies>
 
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+
+            </plugin>
+        </plugins>
+    </build>
 
 </project>

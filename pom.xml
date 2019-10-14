@@ -24,7 +24,6 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>${lombok.veriosn}</version>
-            <scope>compile</scope>
         </dependency>
     </dependencies>
 

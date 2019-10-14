@@ -1,7 +1,8 @@
 package com.lfm.rpc.server;
 
 
-import com.lfm.rpc.core.request.RpcRequest;
+
+import com.lfm.rpc.core.model.RpcRequest;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;

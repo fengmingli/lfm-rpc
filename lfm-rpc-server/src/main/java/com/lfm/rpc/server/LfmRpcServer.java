@@ -9,7 +9,7 @@ public class LfmRpcServer {
         HelloServiceImpl helloService = new HelloServiceImpl();
 
         LfmRpcServerProxy lfmRpcServerProxy = new LfmRpcServerProxy();
-        lfmRpcServerProxy.publisher(helloService, 8080);
+        lfmRpcServerProxy.publisher(helloService, 9999);
     }
 }
 

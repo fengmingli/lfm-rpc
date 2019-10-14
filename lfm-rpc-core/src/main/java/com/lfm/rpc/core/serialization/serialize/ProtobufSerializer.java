@@ -1,4 +1,4 @@
-package com.lfm.rpc.core.serialization.serializeimpl;
+package com.lfm.rpc.core.serialization.serialize;
 
 import com.lfm.rpc.core.serialization.Serializer;
 import io.protostuff.LinkedBuffer;

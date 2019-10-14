@@ -8,7 +8,7 @@ public class LfmRpcClient  {
 
     public static void main(String[] args) {
         LfmRpcProxy lfmRpcProxy = new LfmRpcProxy();
-        HelloService helloService = lfmRpcProxy.clientProxy(HelloService.class, "localhost", 8080);
+        HelloService helloService = lfmRpcProxy.clientProxy(HelloService.class, "localhost", 9999);
         System.out.println(helloService.sayHello("lfm"));
     }
 }

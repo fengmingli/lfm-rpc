@@ -6,7 +6,17 @@ package com.lfm.rpc.client;
  */
 public interface HelloService   {
 
+    /**
+     * 保存User
+     * @param user
+     * @return
+     */
     String saveUser(User user);
 
+    /**
+     * TestHello方法
+     * @param content
+     * @return
+     */
     String sayHello(String content);
 }
