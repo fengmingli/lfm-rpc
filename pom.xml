@@ -14,9 +14,10 @@
         <module>lfm-rpc-server</module>
         <module>lfm-rpc-samples</module>
     </modules>
-    <properties>
-        <lombok.veriosn>1.18.4</lombok.veriosn>
 
+    <properties>
+        <slf4j.version>1.7.25</slf4j.version>
+        <lombok.veriosn>1.18.4</lombok.veriosn>
     </properties>
 
     <dependencies>
@@ -25,7 +26,10 @@
             <artifactId>lombok</artifactId>
             <version>${lombok.veriosn}</version>
         </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
     </dependencies>
-
-
 </project>

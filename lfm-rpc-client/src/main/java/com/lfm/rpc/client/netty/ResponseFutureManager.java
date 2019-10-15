@@ -8,14 +8,14 @@ import java.util.concurrent.ConcurrentHashMap;
  * @author lifengming
  * @since 2019.10.14
  */
-class ResponseFutureManager {
+public class ResponseFutureManager {
 
     private static volatile ResponseFutureManager responseFutureManager = null;
 
     private ResponseFutureManager() {
     }
 
-    static ResponseFutureManager getInstance() {
+    public static ResponseFutureManager getResponseFutureManagerInstance() {
         if (responseFutureManager == null) {
             synchronized (ResponseFutureManager.class) {
                 if (responseFutureManager == null) {

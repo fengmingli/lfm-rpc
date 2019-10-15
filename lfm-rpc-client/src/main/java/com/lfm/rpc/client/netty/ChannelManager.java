@@ -27,7 +27,7 @@ public class ChannelManager {
     private ChannelManager() {
     }
 
-    public static ChannelManager getChannelManager() {
+    public static ChannelManager getChannelManagerInstance() {
         if (channelManager == null) {
             synchronized (ChannelManager.class) {
                 if (channelManager == null) {
@@ -88,7 +88,7 @@ public class ChannelManager {
 
         @Override
         public void channelRead0(ChannelHandlerContext ctx, RpcResponse response) throws Exception {
-            ResponseFutureManager.getInstance().futureDone(response);
+            ResponseFutureManager.getResponseFutureManagerInstance().futureDone(response);
         }
 
         @Override

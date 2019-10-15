@@ -51,6 +51,4 @@
             <version>${objenesis.version}</version>
         </dependency>
     </dependencies>
-
-
 </project>

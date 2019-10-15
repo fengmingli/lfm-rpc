@@ -7,8 +7,8 @@ import lombok.*;
  * @author lifengming
  * @since 2019.09.17
  */
-@Setter
 @Getter
+@Setter
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor

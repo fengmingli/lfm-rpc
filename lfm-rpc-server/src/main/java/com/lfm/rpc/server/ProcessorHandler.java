@@ -3,6 +3,8 @@ package com.lfm.rpc.server;
 
 
 import com.lfm.rpc.core.model.RpcRequest;
+import lombok.extern.slf4j.Slf4j;
+import sun.rmi.runtime.Log;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -28,6 +30,7 @@ public class ProcessorHandler implements Runnable {
     public ProcessorHandler() {
     }
 
+    @Override
     public void run() {
         System.out.println("开始处理客户端请求");
         ObjectInputStream inputStream = null;
