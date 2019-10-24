@@ -13,14 +13,29 @@
         <module>lfm-rpc-client</module>
         <module>lfm-rpc-server</module>
         <module>lfm-rpc-samples</module>
+        <module>lfm-rpc-register</module>
+        <module>lfm-rpc-bootstrap</module>
     </modules>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.0.4.RELEASE</version>
+        <relativePath/>
+    </parent>
 
     <properties>
         <slf4j.version>1.7.25</slf4j.version>
         <lombok.veriosn>1.18.4</lombok.veriosn>
+        <springboot.version>1.5.9.RELEASE</springboot.version>
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+            <version>${springboot.version}</version>
+        </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>

@@ -31,7 +31,7 @@ public class RpcServer {
     @NonNull
     private String serverIp;
 
-    private int serverPort=8888;
+    private int serverPort;
 
 
     public void startServer(ConcurrentHashMap<String, Object> handlerMap) {

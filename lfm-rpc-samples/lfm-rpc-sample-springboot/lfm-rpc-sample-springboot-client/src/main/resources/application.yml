@@ -1,0 +1,7 @@
+spring:
+  cloud:
+    local:
+      host: 172.0.0.1
+      port: 8888
+    server:
+      name: com.lifengming.rpcsample.api.HelloService

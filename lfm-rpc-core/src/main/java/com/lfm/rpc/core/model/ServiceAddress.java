@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.concurrent.ConcurrentHashMap;
+
 /**
  * @author lifengming
  * @since 2019.09.17

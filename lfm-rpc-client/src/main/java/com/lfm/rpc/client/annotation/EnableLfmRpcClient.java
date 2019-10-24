@@ -10,4 +10,6 @@ import java.lang.annotation.*;
 @Retention(RetentionPolicy.RUNTIME)
 @Inherited
 public @interface EnableLfmRpcClient {
+    //引用的api接口的位置
+    String[] basePackages() default {};
 }

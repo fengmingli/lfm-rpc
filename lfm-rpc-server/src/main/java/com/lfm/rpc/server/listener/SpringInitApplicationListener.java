@@ -2,14 +2,13 @@ package com.lfm.rpc.server.listener;
 
 import com.lfm.rpc.core.annotation.LfmRpcService;
 import com.lfm.rpc.core.util.ApplicationHelper;
-import com.lfm.rpc.server.HelloService;
 import com.lfm.rpc.server.netty.RpcServer;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
-import org.springframework.context.event.ApplicationContextEvent;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
+import org.springframework.stereotype.Component;
 
 import java.lang.reflect.Proxy;
 import java.util.Map;
@@ -20,6 +19,7 @@ import java.util.concurrent.ConcurrentHashMap;
  * @since 2019.10.15
  */
 @Slf4j
+@Component
 public class SpringInitApplicationListener implements ApplicationListener<ContextRefreshedEvent> {
 
     private ConcurrentHashMap<String, Object> handlerMap = new ConcurrentHashMap<String, Object>(16);
@@ -50,8 +50,6 @@ public class SpringInitApplicationListener implements ApplicationListener<Contex
                     rpcServer.startServer(handlerMap);
                 }
             });
-
         }
-
     }
 }

@@ -9,12 +9,18 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>lfm-rpc-server</artifactId>
+    <artifactId>lfm-rpc-bootstrap</artifactId>
     <dependencies>
         <dependency>
             <groupId>com.lifengming</groupId>
-            <artifactId>lfm-rpc-core</artifactId>
+            <artifactId>lfm-rpc-server</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.lifengming</groupId>
+            <artifactId>lfm-rpc-client</artifactId>
             <version>1.0.0</version>
         </dependency>
     </dependencies>
+    
 </project>
