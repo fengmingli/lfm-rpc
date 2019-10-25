@@ -1,7 +1,5 @@
 package com.lifengming.rpc.register.servicecenter;
 
-import com.lfm.rpc.core.model.ServiceAddress;
-
 /**
  * 服务发现接口
  * <p></>

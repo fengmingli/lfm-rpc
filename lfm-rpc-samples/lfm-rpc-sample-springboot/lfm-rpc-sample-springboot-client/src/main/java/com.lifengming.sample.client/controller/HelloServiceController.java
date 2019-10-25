@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/rpc")
 public class HelloServiceController {
 
-    @Autowired(required = false)
+    @Autowired
     private HelloService helloService;
 
     @RequestMapping("/demo")
