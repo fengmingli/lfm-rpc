@@ -1,7 +1,5 @@
-package com.lifengming.springboot.bootstrap;
+package com.lifengming.rpc.client;
 
-import com.lifengming.rpc.client.LfmRpcClientProxy;
-import com.lifengming.rpc.client.ServiceBeanDefinitionHandler;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

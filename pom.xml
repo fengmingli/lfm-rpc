@@ -25,7 +25,6 @@
         <module>lfm-rpc-server</module>
         <module>lfm-rpc-samples</module>
         <module>lfm-rpc-register</module>
-        <module>lfm-springboot-bootstrap</module>
     </modules>
 
     <parent>

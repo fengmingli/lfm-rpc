@@ -1,4 +1,4 @@
-package com.lifengming.springboot.bootstrap;
+package com.lifengming.rpc.register;
 
 import com.lifengming.rpc.register.servicecenter.consulservice.ConsulServiceDiscoveryImpl;
 import com.lifengming.rpc.register.servicecenter.consulservice.ConsulServiceRegistryImpl;

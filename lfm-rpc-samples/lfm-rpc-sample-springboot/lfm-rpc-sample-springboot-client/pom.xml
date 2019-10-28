@@ -28,10 +28,15 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
         <dependency>
-        <groupId>com.lifengming</groupId>
-        <artifactId>lfm-springboot-bootstrap</artifactId>
-        <version>1.0.0</version>
-    </dependency>
+            <groupId>com.lifengming</groupId>
+            <artifactId>lfm-rpc-client</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.lifengming</groupId>
+            <artifactId>lfm-rpc-register</artifactId>
+            <version>1.0.0</version>
+        </dependency>
 
 
         <dependency>
