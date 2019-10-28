@@ -1,0 +1,16 @@
+spring:
+  cloud:
+    consul:
+      host: 39.106.144.70
+      port: 8500
+      discovery:
+        health-check-path: /actuator/health
+        health-check-interval: 10s
+        tags: urlprefix-/server
+        prefer-ip-address: true
+
+  application:
+    name: server
+
+server:
+  port: 8777

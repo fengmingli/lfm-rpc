@@ -1,8 +1,6 @@
 package com.lifengming.sample.server.service;
 
-import com.lfm.rpc.server.User;
 import com.lifengming.rpcsample.api.HelloService;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 /**

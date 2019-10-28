@@ -1,8 +1,9 @@
 package com.lifengming.sample.client;
 
-import com.lfm.rpc.client.annotation.EnableLfmRpcClient;
+import com.lifengming.rpc.client.annotation.EnableLfmRpcClient;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.context.annotation.ComponentScan;
 
 
@@ -11,6 +12,7 @@ import org.springframework.context.annotation.ComponentScan;
  * @since 2019.10.16
  */
 @SpringBootApplication
+@EnableDiscoveryClient
 @EnableLfmRpcClient(basePackages = "com.lifengming.rpcsample.api")
 @ComponentScan(value = "com.lifengming")
 public class ClientApplication {

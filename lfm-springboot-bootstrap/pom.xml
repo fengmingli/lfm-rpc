@@ -9,22 +9,20 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>lfm-rpc-register</artifactId>
+    <artifactId>lfm-springboot-bootstrap</artifactId>
     <dependencies>
         <dependency>
             <groupId>com.lifengming</groupId>
-            <artifactId>lfm-rpc-core</artifactId>
+            <artifactId>lfm-rpc-client</artifactId>
             <version>1.0.0</version>
         </dependency>
-        <!--consul-api-->
+
         <dependency>
-            <groupId>com.ecwid.consul</groupId>
-            <artifactId>consul-api</artifactId>
-            <version>1.4.2</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.httpcomponents</groupId>
-            <artifactId>httpclient</artifactId>
+            <groupId>com.lifengming</groupId>
+            <artifactId>lfm-rpc-server</artifactId>
+            <version>1.0.0</version>
         </dependency>
     </dependencies>
+
+
 </project>

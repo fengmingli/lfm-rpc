@@ -3,6 +3,7 @@ package com.lifengming.sample.server;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.context.annotation.ComponentScan;
 
 /**
@@ -10,6 +11,7 @@ import org.springframework.context.annotation.ComponentScan;
  * @since 2019.10.16
  */
 @SpringBootApplication
+@EnableDiscoveryClient
 @ComponentScan(value = "com.lifengming")
 @Slf4j
 public class ServerApplication {

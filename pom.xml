@@ -8,13 +8,24 @@
     <artifactId>lfm-rpc</artifactId>
     <packaging>pom</packaging>
     <version>1.0.0</version>
+
+    <properties>
+        <spring.veriosn>5.1.6.RELEASE</spring.veriosn>
+        <netty.version>4.1.37.Final</netty.version>
+        <protostuff.version>1.6.0</protostuff.version>
+        <objenesis.version>2.6</objenesis.version>
+        <slf4j.version>1.7.25</slf4j.version>
+        <lombok.veriosn>1.18.4</lombok.veriosn>
+        <springboot.version>1.5.9.RELEASE</springboot.version>
+    </properties>
+
     <modules>
         <module>lfm-rpc-core</module>
         <module>lfm-rpc-client</module>
         <module>lfm-rpc-server</module>
         <module>lfm-rpc-samples</module>
         <module>lfm-rpc-register</module>
-        <module>lfm-rpc-bootstrap</module>
+        <module>lfm-springboot-bootstrap</module>
     </modules>
 
     <parent>
@@ -23,13 +34,6 @@
         <version>2.0.4.RELEASE</version>
         <relativePath/>
     </parent>
-
-    <properties>
-        <slf4j.version>1.7.25</slf4j.version>
-        <lombok.veriosn>1.18.4</lombok.veriosn>
-        <springboot.version>1.5.9.RELEASE</springboot.version>
-    </properties>
-
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>

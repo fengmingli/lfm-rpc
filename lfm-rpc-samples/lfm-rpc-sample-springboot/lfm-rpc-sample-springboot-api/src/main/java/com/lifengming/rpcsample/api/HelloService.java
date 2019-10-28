@@ -1,6 +1,6 @@
 package com.lifengming.rpcsample.api;
 
-import com.lfm.rpc.core.annotation.LfmRpcService;
+import com.lifengming.rpc.core.annotation.LfmRpcService;
 
 /**
  * @author lifengming

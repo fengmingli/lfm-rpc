@@ -23,13 +23,6 @@
         </plugins>
     </build>
 
-    <properties>
-        <spring.veriosn>5.1.6.RELEASE</spring.veriosn>
-        <netty.version>4.1.37.Final</netty.version>
-        <protostuff.version>1.6.0</protostuff.version>
-        <objenesis.version>2.6</objenesis.version>
-    </properties>
-
     <dependencies>
         <dependency>
             <groupId>org.springframework</groupId>
