@@ -14,12 +14,12 @@
         <dependency>
             <groupId>com.lifengming</groupId>
             <artifactId>lfm-rpc-core</artifactId>
-            <version>1.0.0</version>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>com.lifengming</groupId>
             <artifactId>lfm-rpc-register</artifactId>
-            <version>1.0.0</version>
+            <version>${project.version}</version>
         </dependency>
     </dependencies>
 </project>

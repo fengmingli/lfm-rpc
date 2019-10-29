@@ -13,8 +13,8 @@
     <dependencies>
         <dependency>
             <groupId>com.lifengming</groupId>
-            <artifactId>lfm-rpc-bootstrap</artifactId>
-            <version>1.0.0</version>
+            <artifactId>lfm-rpc-core</artifactId>
+            <version>${project.version}</version>
         </dependency>
     </dependencies>
 </project>
