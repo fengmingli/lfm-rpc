@@ -12,6 +12,7 @@ import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
 
 import java.net.InetSocketAddress;
+import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
@@ -38,7 +39,7 @@ public class ChannelManager {
         return channelManager;
     }
 
-    private ConcurrentHashMap<InetSocketAddress, Channel> channels = new ConcurrentHashMap<InetSocketAddress, Channel>();
+    private Map<InetSocketAddress, Channel> channels = new ConcurrentHashMap<>();
 
 
     public Channel getChannel(InetSocketAddress inetSocketAddress) {
@@ -74,9 +75,9 @@ public class ChannelManager {
         channels.put(inetSocketAddress, channel);
     }
 
-    private static class LfmRpcChannelInitializer extends ChannelInitializer<SocketChannel> {
+        private static class LfmRpcChannelInitializer extends ChannelInitializer<SocketChannel> {
         @Override
-        protected void initChannel(SocketChannel socketChannel) throws Exception {
+        protected void initChannel(SocketChannel socketChannel) {
             ChannelPipeline cp = socketChannel.pipeline();
             cp.addLast(new RpcEncoder(RpcRequest.class, new ProtobufSerializer()));
             cp.addLast(new RpcDecoder(RpcResponse.class, new ProtobufSerializer()));
@@ -87,12 +88,12 @@ public class ChannelManager {
     private static class RpcResponseHandler extends SimpleChannelInboundHandler<RpcResponse> {
 
         @Override
-        public void channelRead0(ChannelHandlerContext ctx, RpcResponse response) throws Exception {
+        public void channelRead0(ChannelHandlerContext ctx, RpcResponse response) {
             ResponseFutureManager.getResponseFutureManagerInstance().futureDone(response);
         }
 
         @Override
-        public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
+        public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) {
             ctx.close();
         }
 

@@ -1,6 +1,7 @@
 package com.lifengming.rpc.client.netty;
 
 import com.lifengming.rpc.core.model.RpcResponse;
+import com.sun.istack.internal.NotNull;
 import lombok.Data;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;

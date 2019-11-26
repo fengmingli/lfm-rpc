@@ -6,6 +6,8 @@ import com.ecwid.consul.v1.ConsulRawClient;
 import com.ecwid.consul.v1.agent.model.NewService;
 import com.lifengming.rpc.core.model.ServiceAddress;
 import com.lifengming.rpc.register.servicecenter.ServiceRegistry;
+import lombok.NonNull;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 
@@ -18,7 +20,7 @@ public class ConsulServiceRegistryImpl implements ServiceRegistry {
 
 	private ConsulClient consulClient;
 
-	public ConsulServiceRegistryImpl(String consulAddress) {
+	public ConsulServiceRegistryImpl(@NonNull String consulAddress) {
 		String[] address = consulAddress.split(":");
 		ConsulRawClient rawClient = new ConsulRawClient(address[0], Integer.valueOf(address[1]));
 		consulClient = new ConsulClient(rawClient);

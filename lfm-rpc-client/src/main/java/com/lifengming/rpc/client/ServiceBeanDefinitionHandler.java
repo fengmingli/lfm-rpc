@@ -87,7 +87,7 @@ public class ServiceBeanDefinitionHandler implements BeanDefinitionRegistryPostP
      **/
     private Set<String> getApiPackages() {
         //@EnableRPCClients注解的value路径数组
-        String[] basePackages = null;
+        String[] basePackages;
         Set set = new HashSet<>();
         if (getMainClass().getAnnotation(EnableLfmRpcClient.class) != null) {
             //获取 ClientApplication上面的EnableLfmRpcClient注解的
@@ -109,7 +109,7 @@ public class ServiceBeanDefinitionHandler implements BeanDefinitionRegistryPostP
         if (null != System.getProperty(SYSTEM_PROPERTY)) {
             //正在执行的类：sun.java.command
             String mainClass = System.getProperty(SYSTEM_PROPERTY);
-            log.debug("Main class: {}", mainClass);
+            log.info("Main class: {}", mainClass);
             try {
                 return Class.forName(mainClass);
             } catch (ClassNotFoundException e) {

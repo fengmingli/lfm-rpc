@@ -87,12 +87,10 @@ public class LfmRpcClientProxy {
      * 根据服务名，从注册中心获取address
      **/
     private InetSocketAddress getServiceAddress(String targetServiceName) {
-        String serviceAddress = "";
+        String serviceAddress;
         ServiceDiscovery serviceDiscovery = (ServiceDiscovery) ApplicationHelper.getBean(ServiceDiscovery.class);
-        if (serviceDiscovery != null) {
-            serviceAddress = serviceDiscovery.serviceDiscovery(targetServiceName);
-            log.debug("Get address: {} for service: {}", serviceAddress, targetServiceName);
-        }
+        serviceAddress = serviceDiscovery.serviceDiscovery(targetServiceName);
+        log.debug("Get address: {} for service: {}", serviceAddress, targetServiceName);
 
         if (StringUtils.isEmpty(serviceAddress)) {
             throw new RuntimeException(String.format("Address of target service %s is empty", targetServiceName));
@@ -113,7 +111,6 @@ public class LfmRpcClientProxy {
         CountDownLatch latch = new CountDownLatch(1);
         RpcResponseFuture rpcResponseFuture = new RpcResponseFuture(request.getRequestId());
         ResponseFutureManager.getResponseFutureManagerInstance().registerFuture(rpcResponseFuture);
-
         channel.writeAndFlush(request).addListener((ChannelFutureListener) future -> {
             latch.countDown();
         });

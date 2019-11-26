@@ -2,6 +2,7 @@ package com.lifengming.rpc.server.netty;
 
 import com.lifengming.rpc.core.model.RpcRequest;
 import com.lifengming.rpc.core.model.RpcResponse;
+import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelFutureListener;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
@@ -25,7 +26,7 @@ public class RpcServerHandler extends SimpleChannelInboundHandler<RpcRequest> {
     private ConcurrentHashMap<String, Object> handlerMap;
 
     @Override
-    protected void channelRead0(final ChannelHandlerContext ctx, RpcRequest rpcRequest) throws Exception {
+    protected void channelRead0(final ChannelHandlerContext ctx, RpcRequest rpcRequest) {
         log.info("Get request:{}", rpcRequest);
 
         RpcResponse response = new RpcResponse();
@@ -35,19 +36,17 @@ public class RpcServerHandler extends SimpleChannelInboundHandler<RpcRequest> {
             Object result = handlerRequest(rpcRequest);
             response.setResult(result);
         } catch (Exception exception) {
-            log.error("when handing request: {}", exception);
+            log.error("handing request exception：", exception);
             response.setException(exception);
         }
         ctx.writeAndFlush(response).addListener((ChannelFutureListener) channelFuture -> {
-            log.info("server Send response for request: {}", rpcRequest.getRequestId());
+                    log.info("server Send response for request: {}", rpcRequest.getRequestId());
         });
-
-
     }
 
     @Override
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) {
-        log.error("server caught exception", cause);
+        log.error("server caught exception：", cause);
         ctx.close();
     }
 

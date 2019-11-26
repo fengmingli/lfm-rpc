@@ -36,14 +36,15 @@ public class RpcServer {
     @Autowired
     public ConsulServiceRegistryImpl consulServiceRegistry;
 
-    public void startServer(ConcurrentHashMap<String, Object> handlerMap) {
+    public void doStartServer(ConcurrentHashMap<String, Object> handlerMap) {
         //get IP and port
         log.debug("Starting server on port: {}", serverPort);
-        NioEventLoopGroup boosGroup = new NioEventLoopGroup();
+        NioEventLoopGroup boosGroup = new NioEventLoopGroup(1);
         NioEventLoopGroup workGroup = new NioEventLoopGroup();
 
         try {
             ServerBootstrap bootstrap = new ServerBootstrap();
+            //多线程的IO模型
             bootstrap.group(boosGroup, workGroup)
                     .channel(NioServerSocketChannel.class)
                     .childHandler(new LfmRpcServerChannelInitializer(handlerMap))
