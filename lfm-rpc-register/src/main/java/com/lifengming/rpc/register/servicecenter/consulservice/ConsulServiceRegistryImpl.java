@@ -7,9 +7,9 @@ import com.ecwid.consul.v1.agent.model.NewService;
 import com.lifengming.rpc.core.model.ServiceAddress;
 import com.lifengming.rpc.register.servicecenter.ServiceRegistry;
 import lombok.NonNull;
-import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author hongbin
@@ -22,7 +22,7 @@ public class ConsulServiceRegistryImpl implements ServiceRegistry {
 
 	public ConsulServiceRegistryImpl(@NonNull String consulAddress) {
 		String[] address = consulAddress.split(":");
-		ConsulRawClient rawClient = new ConsulRawClient(address[0], Integer.valueOf(address[1]));
+		ConsulRawClient rawClient = new ConsulRawClient(address[0], Integer.parseInt(address[1]));
 		consulClient = new ConsulClient(rawClient);
 	}
 
@@ -45,8 +45,4 @@ public class ConsulServiceRegistryImpl implements ServiceRegistry {
 		consulClient.agentServiceRegister(newService);
 	}
 
-	private String generateNewIdForService(String serviceName, ServiceAddress serviceAddress){
-		// serviceName + ip + port
-		return serviceName + "-" + serviceAddress.getIp() + "-" + serviceAddress.getPort();
-	}
 }

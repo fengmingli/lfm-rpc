@@ -12,18 +12,17 @@ import org.springframework.beans.factory.FactoryBean;
 @Slf4j
 public class ProxyFactoryBean implements FactoryBean<Object> {
 
-    private Class<?> type;
+    private Class<?> clazz;
     private LfmRpcClientProxy lfmRpcClientProxy;
 
-    @SuppressWarnings("unchecked")
     @Override
-    public Object getObject() throws Exception {
-        return lfmRpcClientProxy.clientProxy(type);
+    public Object getObject() {
+        return lfmRpcClientProxy.clientProxy(clazz);
     }
 
     @Override
     public Class<?> getObjectType() {
-        return this.type;
+        return this.clazz;
     }
 
     @Override

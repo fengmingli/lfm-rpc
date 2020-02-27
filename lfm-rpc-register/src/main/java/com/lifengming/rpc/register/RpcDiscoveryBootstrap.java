@@ -32,7 +32,7 @@ public class RpcDiscoveryBootstrap {
 
     /**
      * consul服务注册
-     * @return
+     * @return ConsulServiceRegistryImpl
      */
     @Bean
     public ConsulServiceRegistryImpl getRegistryConsul() {

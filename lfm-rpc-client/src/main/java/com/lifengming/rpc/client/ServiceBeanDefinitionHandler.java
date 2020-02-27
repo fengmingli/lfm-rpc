@@ -14,6 +14,7 @@ import org.springframework.beans.factory.support.BeanDefinitionBuilder;
 import org.springframework.beans.factory.support.BeanDefinitionReaderUtils;
 import org.springframework.beans.factory.support.BeanDefinitionRegistry;
 import org.springframework.beans.factory.support.BeanDefinitionRegistryPostProcessor;
+import org.springframework.context.annotation.ClassPathBeanDefinitionScanner;
 import org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider;
 import org.springframework.core.type.AnnotationMetadata;
 import org.springframework.core.type.filter.AnnotationTypeFilter;
@@ -31,12 +32,14 @@ import java.util.Set;
  *
  * @author lifengming
  * @since 2019.10.16
+ * @see ClassPathBeanDefinitionScanner
+ * @see ClassPathScanningCandidateComponentProvider
  */
 @Slf4j
 @RequiredArgsConstructor
 public class ServiceBeanDefinitionHandler implements BeanDefinitionRegistryPostProcessor {
 
-    public static final String SYSTEM_PROPERTY = "sun.java.command";
+    private static final String SYSTEM_PROPERTY = "sun.java.command";
 
     @NonNull
     private LfmRpcClientProxy lfmRpcClientProxy;
@@ -50,7 +53,7 @@ public class ServiceBeanDefinitionHandler implements BeanDefinitionRegistryPostP
         scanner.addIncludeFilter(new AnnotationTypeFilter(LfmRpcService.class));
         //告诉bean加载器扫描注解的位置
         for (String apiPackages : getApiPackages()) {
-            //拿到路径下申请组件者的Bean set集合
+            //拿到路径下申请的Bean set集合
             Set<BeanDefinition> candidateComponents = scanner.findCandidateComponents(apiPackages);
             for (BeanDefinition candidateComponent : candidateComponents) {
                 if (candidateComponent instanceof AnnotatedBeanDefinition) {
@@ -88,7 +91,7 @@ public class ServiceBeanDefinitionHandler implements BeanDefinitionRegistryPostP
     private Set<String> getApiPackages() {
         //@EnableRPCClients注解的value路径数组
         String[] basePackages;
-        Set set = new HashSet<>();
+        Set<String> set = new HashSet<>();
         if (getMainClass().getAnnotation(EnableLfmRpcClient.class) != null) {
             //获取 ClientApplication上面的EnableLfmRpcClient注解的
             basePackages = getMainClass().getAnnotation(EnableLfmRpcClient.class).basePackages();

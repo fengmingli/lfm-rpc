@@ -58,17 +58,14 @@ public class ConsulServiceDiscoveryImpl implements ServiceDiscovery {
 	}
 
 	private void longPolling(String serviceName){
-		new Thread(new Runnable() {
-			@Override
-			public void run() {
-				long consulIndex = -1;
-				do {
+		new Thread(() -> {
+			long consulIndex = -1;
+			do {
 
-					Service service = consulClient.getAgentServices().getValue().get(serviceName);
-					ServiceAddress serviceAddress = new ServiceAddress(service.getAddress(),service.getPort());
-					loadBalancerMap.put(serviceName,serviceAddress);
-				} while(true);
-			}
+				Service service = consulClient.getAgentServices().getValue().get(serviceName);
+				ServiceAddress serviceAddress = new ServiceAddress(service.getAddress(),service.getPort());
+				loadBalancerMap.put(serviceName,serviceAddress);
+			} while(true);
 		}).start();
 	}
 

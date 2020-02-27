@@ -1,7 +1,6 @@
 package com.lifengming.rpc.client.netty;
 
 import com.lifengming.rpc.core.model.RpcResponse;
-import com.sun.istack.internal.NotNull;
 import lombok.Data;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
@@ -29,7 +28,7 @@ public class RpcResponseFuture implements Future<Object> {
     }
 
     @Override
-    public RpcResponse get() throws InterruptedException, ExecutionException {
+    public RpcResponse get() {
         try {
             latch.await();
         } catch (InterruptedException e) {
@@ -39,9 +38,9 @@ public class RpcResponseFuture implements Future<Object> {
     }
 
     @Override
-    public RpcResponse get(long timeout, TimeUnit unit) throws InterruptedException, ExecutionException, TimeoutException {
+    public RpcResponse get(long timeout, TimeUnit timeUnit) throws TimeoutException {
         try {
-            if (!latch.await(timeout, unit)) {
+            if (!latch.await(timeout, timeUnit)) {
                 throw new TimeoutException("RPC Request timeout!");
             }
         } catch (InterruptedException e) {

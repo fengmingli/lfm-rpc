@@ -12,8 +12,9 @@ import com.lifengming.rpc.core.model.ServiceAddress;
 public interface ServiceRegistry {
     /**
      * 通过服务地址与服务名进行注册
-     * @param serviceName
-     * @param serviceAddress
+     *
+     * @param serviceName    服务名字
+     * @param serviceAddress 服务地址
      */
     void serviceRegister(String serviceName, ServiceAddress serviceAddress);
 }

@@ -31,7 +31,7 @@ public class SystemInfoUtils {
     /**
      * 缓存了物理机地址
      */
-    private static String  HOSTMACHINE;
+    private static String  hostMachine;
     /**
      * 是否Windows系统
      */
@@ -52,7 +52,7 @@ public class SystemInfoUtils {
         IS_MAC = os[2];
 
         LOCALHOST = NetUtils.getLocalIpv4();
-        HOSTMACHINE = parseHostMachine();
+        hostMachine = parseHostMachine();
     }
 
     /**
@@ -129,6 +129,6 @@ public class SystemInfoUtils {
      * @return 物理机地址
      */
     public static String getHostMachine() {
-        return HOSTMACHINE;
+        return hostMachine;
     }
 }

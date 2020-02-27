@@ -79,7 +79,7 @@ public class RpcServer {
         private ConcurrentHashMap<String, Object> handlerMap;
 
         @Override
-        protected void initChannel(SocketChannel channel) throws Exception {
+        protected void initChannel(SocketChannel channel) {
             ChannelPipeline cp = channel.pipeline();
             cp.addLast(new RpcDecoder(RpcRequest.class, new ProtobufSerializer()));
             cp.addLast(new RpcEncoder(RpcResponse.class, new ProtobufSerializer()));

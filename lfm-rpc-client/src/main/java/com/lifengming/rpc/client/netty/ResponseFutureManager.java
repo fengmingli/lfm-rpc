@@ -27,7 +27,7 @@ public class ResponseFutureManager {
         return responseFutureManager;
     }
 
-    private ConcurrentHashMap<String, RpcResponseFuture> rpcFutureMap = new ConcurrentHashMap<String, RpcResponseFuture>();
+    private ConcurrentHashMap<String, RpcResponseFuture> rpcFutureMap = new ConcurrentHashMap<>();
 
     void futureDone(RpcResponse rpcResponse) {
         // Mark the responseFuture as done

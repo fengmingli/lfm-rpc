@@ -24,7 +24,7 @@ public class ThreadPoolExecutorFactory {
         // 用单例模式创建线程池，保留2个核心线程，最多线程为CPU个数的2n+1的两倍.
         int maxProcessor = (1 + availableProcessor * 2) * 2;
         executorService = new ThreadPoolExecutor(min(coreNum, 2), maxProcessor,
-                60L, TimeUnit.SECONDS, new SynchronousQueue<>(), namedThreadFactory);
+                60L, TimeUnit.SECONDS, new SynchronousQueue<>(), namedThreadFactory,new ThreadPoolExecutor.AbortPolicy());
     }
 
     public static ThreadPoolExecutorFactory getInstance() {

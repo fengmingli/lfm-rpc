@@ -5,7 +5,6 @@ import com.lifengming.rpc.core.thread.ThreadPoolExecutorFactory;
 import com.lifengming.rpc.core.util.ApplicationHelper;
 import com.lifengming.rpc.server.netty.RpcServer;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 import java.lang.reflect.Proxy;
 import java.util.Map;

@@ -1,6 +1,7 @@
 package com.lifengming.sample.client.controller;
 
 
+import com.lifengming.rpcsample.api.HelloOneService;
 import com.lifengming.rpcsample.api.HelloService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,9 +18,22 @@ public class HelloServiceController {
     @Autowired
     private HelloService helloService;
 
-    @RequestMapping("/demo")
+    @Autowired
+    private HelloOneService helloOneService;
+
+    @RequestMapping("/one")
     public String hello() {
         return helloService.getDocker();
+    }
+
+    @RequestMapping("/two")
+    public String helloOne() {
+        return helloOneService.getDockerOne();
+    }
+
+    @RequestMapping("/three")
+    public String helloThree() {
+        return helloOneService.getDockerOne();
     }
 
 }
