@@ -3,43 +3,49 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
-    <groupId>com.lifengming</groupId>
+    <groupId>com.lifengming.rpc</groupId>
     <artifactId>lfm-rpc</artifactId>
     <packaging>pom</packaging>
-    <version>1.0.0</version>
+    <version>2.0.0-SNAPSHOT</version>
 
     <properties>
-        <spring.veriosn>5.1.6.RELEASE</spring.veriosn>
         <netty.version>4.1.37.Final</netty.version>
         <protostuff.version>1.6.0</protostuff.version>
         <objenesis.version>2.6</objenesis.version>
         <slf4j.version>1.7.25</slf4j.version>
         <lombok.veriosn>1.18.4</lombok.veriosn>
-        <springboot.version>1.5.9.RELEASE</springboot.version>
     </properties>
 
     <modules>
-        <module>lfm-rpc-core</module>
-        <module>lfm-rpc-client</module>
-        <module>lfm-rpc-server</module>
-        <module>lfm-rpc-samples</module>
-        <module>lfm-rpc-register</module>
-        <module>lfm-springboot-bootstrap</module>
+        <module>rpc-protocol</module>
+        <module>rpc-common</module>
+        <module>rpc-server</module>
+        <module>rpc-samples</module>
+        <module>rpc-register</module>
+        <module>rpc-client</module>
+        <module>rpc-remoting</module>
+        <module>rpc-serialization</module>
+        <module>rpc-spring</module>
     </modules>
 
-    <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.0.4.RELEASE</version>
-        <relativePath/>
-    </parent>
+    <!--版本库信息-->
+    <scm>
+        <developerConnection>scm:git:git@github.com:fengmingli/lfm-rpc.git</developerConnection>
+    </scm>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>2.5.0</version>
+                <scope>import</scope>
+                <type>pom</type>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
     <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
-            <version>${springboot.version}</version>
-        </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -51,4 +57,64 @@
             <version>${slf4j.version}</version>
         </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>3.0.0</version>
+                <configuration>
+                    <attach>true</attach>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!--版本发布-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>2.5.3</version>
+                <configuration>
+                    <useReleaseProfile>false</useReleaseProfile>
+                    <tagNameFormat>v@{project.version}</tagNameFormat>
+                    <autoVersionSubmodules>true</autoVersionSubmodules>
+                    <!--执行的命令  默认clean verify-->
+                    <preparationGoals>clean install</preparationGoals>
+                    <!--允许快照版本 默认false-->
+                    <allowTimestampedSnapshots>true</allowTimestampedSnapshots>
+                </configuration>
+            </plugin>
+
+            <!--代码规范校验-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-checkstyle-plugin</artifactId>
+                <version>3.1.0</version>
+                <executions>
+                    <execution>
+                        <id>validate</id>
+                        <phase>validate</phase>
+                        <configuration>
+                            <excludes>src/main/resources</excludes>
+                            <configLocation>checkstyle/check_style.xml</configLocation>
+                            <encoding>UTF-8</encoding>
+                            <consoleOutput>true</consoleOutput>
+                            <failsOnError>true</failsOnError>
+                        </configuration>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 </project>
