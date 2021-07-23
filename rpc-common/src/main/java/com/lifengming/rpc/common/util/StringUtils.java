@@ -32,47 +32,47 @@ public class StringUtils {
      *
      * @since 5.0.0
      */
-    public static final String   EMPTY              = "";
+    public static final String EMPTY = "";
 
     /**
      * The context path separator String {@code "/"}.
      */
-    public static final String   CONTEXT_SEP        = "/";
+    public static final String CONTEXT_SEP = "/";
 
     /**
      * The string {@code "*"}.
      *
      * @since 5.3.1
      */
-    public static final String   ALL                = "*";
+    public static final String ALL = "*";
 
     /**
      * The string {@code "default"}.
      *
      * @since 5.3.1
      */
-    public static final String   DEFAULT            = "default";
+    public static final String DEFAULT = "default";
 
     /**
      * The string {@code "true"}.
      *
      * @since 5.4.0
      */
-    public static final String   TRUE               = "true";
+    public static final String TRUE = "true";
 
     /**
      * The string {@code "false"}.
      *
      * @since 5.4.0
      */
-    public static final String   FALSE              = "false";
+    public static final String FALSE = "false";
 
     /**
      * The string {@code "null"}.
      *
      * @since 5.4.0
      */
-    public static final String   NULL               = "null";
+    public static final String NULL = "null";
 
     /**
      * 空数组
@@ -140,11 +140,10 @@ public class StringUtils {
      * @since 3.0 Changed signature from isBlank(String) to isBlank(CharSequence)
      */
     public static boolean isBlank(CharSequence cs) {
-        int strLen;
-        if (cs == null || (strLen = cs.length()) == 0) {
+        if (cs == null || cs.length() == 0) {
             return true;
         }
-        for (int i = 0; i < strLen; i++) {
+        for (int i = 0; i < cs.length(); i++) {
             if (!Character.isWhitespace(cs.charAt(i))) {
                 return false;
             }
@@ -324,7 +323,7 @@ public class StringUtils {
      */
     public static String[] split(String src, String separator) {
         if (isEmpty(separator)) {
-            return new String[] { src };
+            return new String[]{src};
         }
         if (isEmpty(src)) {
             return StringUtils.EMPTY_STRING_ARRAY;

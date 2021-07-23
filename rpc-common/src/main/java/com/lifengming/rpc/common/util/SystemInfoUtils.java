@@ -61,7 +61,7 @@ public class SystemInfoUtils {
      * @return 物理机地址
      */
     static boolean[] parseOSName() {
-        boolean[] result = new boolean[] { false, false, false };
+        boolean[] result = new boolean[] {false, false, false };
         String osName = System.getProperty("os.name").toLowerCase();
         if (osName.contains("windows")) {
             result[0] = true;
@@ -75,6 +75,7 @@ public class SystemInfoUtils {
 
     /**
      * 是否Windows系统
+     * @return boolean
      */
     public static boolean isWindows() {
         return IS_WINDOWS;
@@ -82,6 +83,7 @@ public class SystemInfoUtils {
 
     /**
      * 是否Linux系统
+     * @return boolean
      */
     public static Boolean isLinux() {
         return IS_LINUX;
@@ -89,6 +91,7 @@ public class SystemInfoUtils {
 
     /**
      * 是否Mac系统
+     * @return boolean
      */
     public static boolean isMac() {
         return IS_MAC;

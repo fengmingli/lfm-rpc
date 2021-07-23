@@ -30,10 +30,22 @@ public class ApplicationHelper implements ApplicationContextAware {
     }
 
 
+    /**
+     * obtain bean
+     *
+     * @param beanName bean name
+     * @return obj
+     */
     public static Object getBean(Class<?> beanName) {
         return applicationContext.getBean(beanName);
     }
 
+    /**
+     * obtain bean by annotation
+     *
+     * @param clz Class<? extends Annotation>
+     * @return map
+     */
     public static Map<String, Object> getBeansByAnnotation(Class<? extends Annotation> clz) {
         return applicationContext.getBeansWithAnnotation(clz);
     }

@@ -1,5 +1,13 @@
 # lfm-rpc
 
+## 项目构建
+```
+mvn release:prepare -Darguments="-DskipITs -DskipTestITs -DskipTests" // 更新版本号 打tag
+mvn release:update-versions // 清理目录
+git push // 提交
+```
+
+
 ## 基础组件
 - protocol
 

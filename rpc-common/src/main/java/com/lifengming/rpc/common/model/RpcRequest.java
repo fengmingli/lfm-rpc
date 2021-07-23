@@ -1,6 +1,9 @@
 package com.lifengming.rpc.common.model;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 /**
  * <p>对于请求的封装<p/>

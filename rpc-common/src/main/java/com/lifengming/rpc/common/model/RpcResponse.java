@@ -1,6 +1,10 @@
 package com.lifengming.rpc.common.model;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 /**
  * <p>对于响应的封装<p/>
  * @author lifengming
@@ -15,6 +19,10 @@ public class RpcResponse {
     private Exception exception;
     private Object result;
 
+    /**
+     * check exception
+     * @return exist true;
+     */
     public boolean hasException() {
         return exception != null;
     }

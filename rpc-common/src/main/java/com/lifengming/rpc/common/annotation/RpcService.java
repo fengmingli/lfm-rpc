@@ -1,6 +1,5 @@
 package com.lifengming.rpc.common.annotation;
 
-import org.springframework.core.annotation.AliasFor;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
