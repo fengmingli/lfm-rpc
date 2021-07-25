@@ -5,6 +5,10 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * <p>对于请求的封装<p/>
  * @author lifengming
@@ -14,9 +18,10 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class RpcRequest {
+public class RpcRequest implements Serializable {
     private String requestId;
-    private String interfaceName;
+    private final Map<String,String> headers = new HashMap<>();
+    private String serviceName;
     private String methodName;
     private String className;
     private Class<?>[] parameterTypes;

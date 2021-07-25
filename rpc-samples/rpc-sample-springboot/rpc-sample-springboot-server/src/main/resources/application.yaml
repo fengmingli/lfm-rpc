@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: server
+
+server:
+  port: 8777
+
+lfm:
+  rpc:
+    register-address: "47.96.188.139:8001"
+    protocol: "protobuf"

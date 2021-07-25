@@ -1,6 +1,6 @@
 package com.lifengming.rpc.remoting.netty.code;
 
-import com.lifengming.rpc.serialization.serialize.Serializer;
+import com.lifengming.rpc.serialization.serialize.MessageProtocol;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.ByteToMessageDecoder;
@@ -17,7 +17,7 @@ public class RpcDecoder extends ByteToMessageDecoder {
 
     public static final int MAX_SIZE = 4;
     private final Class<?> genericClass;
-    private final Serializer serializer;
+    private final MessageProtocol messageProtocol;
 
     @Override
     public void decode(ChannelHandlerContext ctx, ByteBuf in, List<Object> out) throws Exception {
@@ -32,6 +32,6 @@ public class RpcDecoder extends ByteToMessageDecoder {
         }
         byte[] data = new byte[dataLength];
         in.readBytes(data);
-        out.add(serializer.deserialize(data, genericClass));
+        out.add(messageProtocol.deserialize(data, genericClass));
     }
 }

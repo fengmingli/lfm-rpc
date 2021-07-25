@@ -1,11 +1,10 @@
 package com.lifengming.sample.client.controller;
 
 
+import com.lifengming.rpc.common.annotation.RpcReference;
 import com.lifengming.rpcsample.api.HelloService;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import javax.annotation.Resource;
 
 /**
  * @author lifengming
@@ -15,7 +14,7 @@ import javax.annotation.Resource;
 @RequestMapping("/rpc")
 public class HelloServiceController {
 
-    @Resource
+    @RpcReference
     private HelloService helloService;
 
     @RequestMapping("/demo")
