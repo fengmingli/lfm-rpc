@@ -3,7 +3,7 @@
     <parent>
         <artifactId>lfm-rpc</artifactId>
         <groupId>com.lifengming.rpc</groupId>
-        <version>2.1.0-SNAPSHOT</version>
+        <version>2.1.1-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -12,6 +12,10 @@
     <modules>
         <module>rpc-sample-springboot</module>
     </modules>
+
+    <properties>
+        <log4j2.version>2.12.1</log4j2.version>
+    </properties>
 
 
 </project>
