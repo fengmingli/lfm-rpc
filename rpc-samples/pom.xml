@@ -13,5 +13,9 @@
         <module>rpc-sample-springboot</module>
     </modules>
 
+    <properties>
+        <log4j2.version>2.12.1</log4j2.version>
+    </properties>
+
 
 </project>

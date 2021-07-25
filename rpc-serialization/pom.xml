@@ -28,5 +28,17 @@
             <artifactId>objenesis</artifactId>
             <version>${objenesis.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>com.lifengming.rpc</groupId>
+            <artifactId>rpc-common</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 </project>

@@ -1,0 +1,2 @@
+com.lifengming.rpc.serialization.serialize.jdk.JavaSerializeMessageProtocol
+com.lifengming.rpc.serialization.serialize.protobuf.ProtobufMessageProtocol

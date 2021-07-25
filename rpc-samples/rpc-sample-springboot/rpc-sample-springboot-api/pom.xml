@@ -11,7 +11,7 @@
     <dependencies>
         <dependency>
             <groupId>com.lifengming.rpc</groupId>
-            <artifactId>springboot-bootstrap</artifactId>
+            <artifactId>rpc-springboot-starter</artifactId>
             <version>${project.version}</version>
         </dependency>
     </dependencies>

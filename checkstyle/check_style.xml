@@ -18,7 +18,7 @@
         <!-- 避免使用* -->
         <module name="AvoidStarImport">
             <property name="excludes" value="java.io,java.net,java.lang.Math"/>
-            <!-- 实例；import java.util.*;.-->
+            <!-- 实例；import jdk.util.*;.-->
             <property name="allowClassImports" value="false"/>
             <!-- 实例 ；import static org.junit.Assert.*;-->
             <property name="allowStaticMemberImports" value="true"/>
@@ -27,7 +27,7 @@
         <module name="IllegalImport"/>
         <!-- 检查是否导入了多余的包 -->
         <module name="RedundantImport"/>
-        <!-- 没用的import检查，比如：1.没有被用到2.重复的3.import java.lang的4.import 与该类在同一个package的 -->
+        <!-- 没用的import检查，比如：1.没有被用到2.重复的3.import jdk.lang的4.import 与该类在同一个package的 -->
         <module name="UnusedImports"/>
 
 
@@ -68,7 +68,7 @@
         <!-- 方法的参数名 -->
         <module name="ParameterName"/>
         <!-- 常量名的检查（只允许大写），默认^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$ -->
-        <module name="ConstantName"/>
+<!--        <module name="ConstantName"/>-->
 
         <!-- 定义检查 -->
         <!-- 检查数组类型定义的样式 -->

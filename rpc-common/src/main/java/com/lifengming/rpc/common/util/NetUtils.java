@@ -218,7 +218,7 @@ public class NetUtils {
                 return localAddress;
             }
         } catch (Throwable e) {
-
+            // no op
         }
         try {
             Enumeration<NetworkInterface> interfaces = NetworkInterface.getNetworkInterfaces();
@@ -234,16 +234,16 @@ public class NetUtils {
                                     return address;
                                 }
                             } catch (Throwable e) {
-
+                                // no op
                             }
                         }
                     } catch (Throwable e) {
-
+                        // no op
                     }
                 }
             }
         } catch (Throwable e) {
-
+            // no op
         }
         return localAddress;
     }
