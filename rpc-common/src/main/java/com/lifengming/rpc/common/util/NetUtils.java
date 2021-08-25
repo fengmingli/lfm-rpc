@@ -358,8 +358,7 @@ public class NetUtils {
         }
 
         List<InetSocketAddress> ads = new ArrayList<InetSocketAddress>();
-        for (int j = 0; j < ips.size(); j++) {
-            String[] ip = ips.get(j);
+        for (String[] ip : ips) {
             try {
                 InetSocketAddress address = new InetSocketAddress(ip[0],
                         Integer.parseInt(ip[1] == null ? defaultPort : ip[1]));

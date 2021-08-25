@@ -19,6 +19,7 @@ package com.lifengming.rpc.common.util;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * 字符串操作工具类
@@ -310,7 +311,7 @@ public class StringUtils {
      * @return 是否相同
      */
     public static boolean equals(CharSequence s1, CharSequence s2) {
-        return s1 == null ? s2 == null : s1.equals(s2);
+        return Objects.equals(s1, s2);
     }
 
     /**
@@ -350,7 +351,7 @@ public class StringUtils {
                 list.add(s.trim());
             }
         }
-        return list.toArray(new String[list.size()]);
+        return list.toArray(new String[0]);
     }
 
     /**

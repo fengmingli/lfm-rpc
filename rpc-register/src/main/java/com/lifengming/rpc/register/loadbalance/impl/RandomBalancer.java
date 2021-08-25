@@ -4,11 +4,7 @@ package com.lifengming.rpc.register.loadbalance.impl;
 import com.lifengming.rpc.common.annotation.LoadBalanceSupport;
 import com.lifengming.rpc.common.constans.RpcConstant;
 import com.lifengming.rpc.common.model.Service;
-import com.lifengming.rpc.common.model.ServiceAddress;
 import com.lifengming.rpc.register.loadbalance.LoadBalancer;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
 
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;

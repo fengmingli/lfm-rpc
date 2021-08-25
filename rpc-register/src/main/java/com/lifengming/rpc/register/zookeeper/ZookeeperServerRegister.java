@@ -1,7 +1,6 @@
 package com.lifengming.rpc.register.zookeeper;
 
 import cn.hutool.json.JSONUtil;
-import com.lifengming.rpc.common.annotation.ServerRegisterSupport;
 import com.lifengming.rpc.common.constans.RpcConstant;
 import com.lifengming.rpc.common.exception.RpcException;
 import com.lifengming.rpc.common.model.Service;
