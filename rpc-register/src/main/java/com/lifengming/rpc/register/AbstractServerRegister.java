@@ -12,7 +12,7 @@ import java.util.Map;
  * @author lifengming
  * @date 2021.07.24
  */
-public abstract class DefaultServerRegister implements ServerRegister {
+public abstract class AbstractServerRegister implements ServerRegister {
     private final Map<String, ServiceObject> serviceMap = new HashMap<>();
 
     protected String protocol;
@@ -24,7 +24,7 @@ public abstract class DefaultServerRegister implements ServerRegister {
     protected Integer weight;
 
     @Override
-    public void serviceRegister(ServiceObject serviceObject) throws RpcException {
+    public void register(ServiceObject serviceObject) throws RpcException {
         if (serviceObject == null) {
             throw new RpcException("service register serviceObject cannot be empty");
         }

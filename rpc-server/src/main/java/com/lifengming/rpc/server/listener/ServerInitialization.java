@@ -42,6 +42,7 @@ public class ServerInitialization implements ApplicationListener<ContextRefreshe
 
 
     private void startServer(ApplicationContext context) {
+        //寻找需要暴露的服务
         Map<String, Object> rpcServiceMap = context.getBeansWithAnnotation(RpcService.class);
         if (rpcServiceMap.size() > 0) {
             AtomicBoolean startServerFlag = new AtomicBoolean(true);
@@ -63,19 +64,19 @@ public class ServerInitialization implements ApplicationListener<ContextRefreshe
                         serviceObject = ServiceObject.builder()
                                 .serviceName(serviceName)
                                 .clazz(Class.forName(serviceName))
-                                .object(rpcService)
+                                .serverId(rpcService)
                                 .build();
                     } else {
                         Class<?> supperClass = interfaces[0];
                         serviceObject = ServiceObject.builder()
                                 .serviceName(supperClass.getName())
                                 .clazz(supperClass)
-                                .object(rpcService)
+                                .serverId(rpcService)
                                 .build();
                     }
 
                     //服务注册
-                    serverRegister.serviceRegister(serviceObject);
+                    serverRegister.register(serviceObject);
 
                 } catch (Exception e) {
                     //on op

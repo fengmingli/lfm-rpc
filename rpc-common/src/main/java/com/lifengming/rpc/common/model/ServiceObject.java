@@ -28,5 +28,5 @@ public class ServiceObject {
     /**
      * 具体服务
      */
-    private final Object object;
+    private final Object serverId;
 }

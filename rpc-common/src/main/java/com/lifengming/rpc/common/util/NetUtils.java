@@ -335,7 +335,7 @@ public class NetUtils {
      * @return 可以连接注册中心的本机IP
      */
     public static List<InetSocketAddress> getIpListByRegistry(String registryIp) {
-        List<String[]> ips = new ArrayList<String[]>();
+        List<String[]> ips = new ArrayList<>();
         String defaultPort = null;
 
         String[] srcIps = registryIp.split(",");
