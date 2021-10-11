@@ -3,8 +3,8 @@ spring:
     name: applica-client
 lfm:
   rpc:
-    register-address: "47.96.188.139:8001"
-    protocol: "protobuf"
+    register-address: 127.0.0.1:2181
+    protocol: protobuf
 
 
 server:

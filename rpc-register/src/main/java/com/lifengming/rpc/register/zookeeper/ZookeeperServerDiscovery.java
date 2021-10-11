@@ -4,6 +4,8 @@ import cn.hutool.json.JSONUtil;
 import com.lifengming.rpc.common.constans.RpcConstant;
 import com.lifengming.rpc.common.model.Service;
 import com.lifengming.rpc.register.ServerDiscovery;
+import com.lifengming.rpc.register.localcache.ServiceLocalCache;
+import lombok.extern.slf4j.Slf4j;
 import org.I0Itec.zkclient.ZkClient;
 
 import java.io.UnsupportedEncodingException;
@@ -18,6 +20,7 @@ import java.util.stream.Collectors;
  * @author lifengming
  * @date 2021.07.25
  */
+@Slf4j
 public class ZookeeperServerDiscovery implements ServerDiscovery {
 
     private final ZkClient zkClient;
@@ -52,7 +55,15 @@ public class ZookeeperServerDiscovery implements ServerDiscovery {
                 }).collect(Collectors.toList());
     }
 
-    public ZkClient getZkClient() {
-        return zkClient;
+    @Override
+    public void watchChildNode(ServerDiscovery serverDiscovery) {
+        // 注册子节点监听
+        if (serverDiscovery instanceof ZookeeperServerDiscovery) {
+            ServiceLocalCache.SERVICE_CLASS_NAMES.forEach(name -> {
+                String servicePath = RpcConstant.ZK_SERVICE_PATH + RpcConstant.PATH_DELIMITER + name + "/service";
+                zkClient.subscribeChildChanges(servicePath, new ZookeeperChildListenerImpl());
+            });
+            log.info("subscribe service zk node successfully");
+        }
     }
 }

@@ -10,7 +10,7 @@ import java.util.List;
  * @author lifengming
  * @date 2021.07.25
  */
-public interface ServerDiscovery {
+public interface ServerDiscovery extends Server {
 
     /**
      * 通过服务名获取服务注册的列表
@@ -18,4 +18,11 @@ public interface ServerDiscovery {
      * @return 服务列表 List<Service>
      */
     List<Service> getServiceList(String serviceName);
+
+
+    /**
+     * watch 子节点
+     * @param serverDiscovery 服务名
+     */
+    void watchChildNode(ServerDiscovery serverDiscovery);
 }

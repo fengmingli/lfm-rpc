@@ -6,7 +6,7 @@ import com.lifengming.rpc.common.exception.RpcException;
 import com.lifengming.rpc.common.model.Service;
 import com.lifengming.rpc.common.model.ServiceObject;
 import com.lifengming.rpc.common.util.NetUtils;
-import com.lifengming.rpc.register.DefaultServerRegister;
+import com.lifengming.rpc.register.AbstractServerRegister;
 import org.I0Itec.zkclient.ZkClient;
 
 import java.io.UnsupportedEncodingException;
@@ -18,7 +18,7 @@ import java.net.URLEncoder;
  * @author lifengming
  * @date 2021.07.24
  */
-public class ZookeeperServerRegister extends DefaultServerRegister {
+public class ZookeeperServerRegister extends AbstractServerRegister {
 
     private final ZkClient zookeeperClient;
 
@@ -31,15 +31,15 @@ public class ZookeeperServerRegister extends DefaultServerRegister {
     }
 
     @Override
-    public void serviceRegister(ServiceObject serviceObject) throws RpcException {
-        super.serviceRegister(serviceObject);
+    public void register(ServiceObject serviceObject) throws RpcException {
+        super.register(serviceObject);
 
         String host = NetUtils.getLocalAddress().getHostAddress();
         String address = host + ":" + port;
 
         Service service = Service.builder()
                 .address(address)
-                .name(serviceObject.getClazz().getName())
+                .name(serviceObject.getServiceName())
                 .protocol(protocol)
                 .weight(this.weight)
                 .build();
@@ -67,12 +67,14 @@ public class ZookeeperServerRegister extends DefaultServerRegister {
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
+        // zkPath: /rpc/${serviceName}/service
         String servicePath = RpcConstant.ZK_SERVICE_PATH + RpcConstant.PATH_DELIMITER + serviceName + "/service";
         if (!zookeeperClient.exists(servicePath)) {
             // 没有该节点就创建
             zookeeperClient.createPersistent(servicePath, true);
         }
 
+        // uriPath: /rpc/${serviceName}/service/uri
         String uriPath = servicePath + RpcConstant.PATH_DELIMITER + uri;
         if (zookeeperClient.exists(uriPath)) {
             // 删除之前的节点

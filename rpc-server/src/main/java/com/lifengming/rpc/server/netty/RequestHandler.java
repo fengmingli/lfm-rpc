@@ -44,7 +44,7 @@ public class RequestHandler {
                 // 3.反射调用对应的方法过程
                 Method method = so.getClazz().getMethod(req.getMethodName(), req.getParameterTypes());
                 method.setAccessible(true);
-                Object result = method.invoke(so.getObject(), req.getParameters());
+                Object result = method.invoke(so.getServerId(), req.getParameters());
                 response = new RpcResponse();
                 response.setRpcStatus(RpcStatusEnum.SUCCESS);
                 response.setResult(result);

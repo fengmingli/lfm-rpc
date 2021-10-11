@@ -22,7 +22,6 @@
         <module>rpc-protocol</module>
         <module>rpc-serialization</module>
         <module>rpc-common</module>
-        <module>rpc-remoting</module>
         <module>rpc-register</module>
         <module>rpc-server</module>
         <module>rpc-client</module>

@@ -9,14 +9,14 @@ import com.lifengming.rpc.common.model.ServiceObject;
  * @author lifengming
  * @date 2021.07.24
  */
-public interface ServerRegister {
+public interface ServerRegister extends Server {
 
     /**
      * 服务注册
      * @param serviceObject 服务持有对象
      * @throws RpcException  注册异常
      */
-    void serviceRegister(ServiceObject serviceObject) throws RpcException;
+    void register(ServiceObject serviceObject) throws RpcException;
 
     /**
      *服务发现
