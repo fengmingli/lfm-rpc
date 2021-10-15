@@ -20,9 +20,15 @@
             <artifactId>rpc-register</artifactId>
             <version>${project.version}</version>
         </dependency>
+        <!-- netty -->
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-all</artifactId>
+            <version>${netty.version}</version>
+        </dependency>
         <dependency>
             <groupId>com.lifengming.rpc</groupId>
-            <artifactId>rpc-remoting</artifactId>
+            <artifactId>rpc-serialization</artifactId>
             <version>${project.version}</version>
         </dependency>
     </dependencies>
