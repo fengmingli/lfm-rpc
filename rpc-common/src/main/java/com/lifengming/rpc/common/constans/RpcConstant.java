@@ -28,7 +28,7 @@ public class RpcConstant {
     /**
      * protobuf序列化协议
      */
-    public static final String PROTOCOL_PROTOBUF = "protobuf";
+    public static final String PROTOCOL_PROTOSTUFF = "protostuff";
     /**
      * kryo序列化协议
      */

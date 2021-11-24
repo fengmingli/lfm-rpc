@@ -1,4 +1,4 @@
-package com.lifengming.rpc.serialization.serialize.protobuf;
+package com.lifengming.rpc.serialization.serialize.protostuff;
 
 import com.lifengming.rpc.common.annotation.MessageProtocolSupport;
 import com.lifengming.rpc.common.constans.RpcConstant;
@@ -21,8 +21,8 @@ import java.util.concurrent.ConcurrentHashMap;
  * @since 2019.09.17
  */
 @SuppressWarnings("unchecked")
-@MessageProtocolSupport(RpcConstant.PROTOCOL_PROTOBUF)
-public class ProtobufMessageProtocol implements MessageProtocol {
+@MessageProtocolSupport(RpcConstant.PROTOCOL_PROTOSTUFF)
+public class ProtostuffMessageProtocol implements MessageProtocol {
     private static final Map<Class<?>, Schema<?>> CACHED_SCHEMA = new ConcurrentHashMap<>();
 
     private static final Objenesis OBJENESIS = new ObjenesisStd(true);
