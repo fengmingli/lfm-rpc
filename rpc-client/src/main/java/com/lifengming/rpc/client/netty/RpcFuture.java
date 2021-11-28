@@ -7,6 +7,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
 /**
+ * 消息的异步转同步
  * @author lifengming
  * @date 2021.07.25
  */
